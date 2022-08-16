@@ -1,2 +1,23 @@
-<h1>Offers#index</h1>
-<p>Find me in app/views/offers/index.html.erb</p>
+// Comment, delete when you design this
+<br>
+// user image
+<br>
+// user name
+<br>
+// offer title
+<br>
+// link to the offer user show page (put in button for now. Please change when design)
+<br>
+<br>
+<div class="container">
+  <% @offers.each do |offer| %>%
+    User image with cloudinary: cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill
+    <h1>
+      <%= offer.user %>
+    </h1>
+    <p>
+      <%= offer.title %>
+    </p>
+    <%= link_to " To offer: offer_path(offer) ", offers_path, class: "btn btn-primary" %>
+  <% end %>
+</div>

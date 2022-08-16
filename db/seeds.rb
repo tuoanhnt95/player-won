@@ -21,18 +21,18 @@ puts "Destory the game database..."
 Game.destroy_all
 
 # 39073 pages of games are there
-pages = (1..3).to_a
-pages.each do |num|
-  url = "https://api.rawg.io/api/games?page=#{num}&key=b7a4871ebfad430ca835d6587cc0c026"
+# pages = (1..3).to_a
+  url = "https://api.rawg.io/api/games?page=1&key=b7a4871ebfad430ca835d6587cc0c026"
 
   response = JSON.parse(URI.open(url).read)
-  response["results"].each do |game|
-    Game.create!(
-      name: game["name"],
-      background_image: game["background_image"]
-    )
+  response["results"].each_with_index do |game, index|
+    if index < 10
+      Game.create!(
+        name: game["name"],
+        background_image: game["background_image"]
+      )
+    end
   end
-end
 puts "#{Game.count} games are created:)"
 
 
