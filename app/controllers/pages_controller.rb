@@ -6,4 +6,5 @@ class PagesController < ApplicationController
     # @offers = Offer.where()
     # @bookings = Booking.where()
   end
+
 end
