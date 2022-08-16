@@ -1,23 +1,19 @@
-// Comment, delete when you design this
-<br>
-// user image
-<br>
-// user name
-<br>
-// offer title
-<br>
-// link to the offer user show page (put in button for now. Please change when design)
-<br>
-<br>
-<div class="container">
-  <% @offers.each do |offer| %>%
-    User image with cloudinary: cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill
-    <h1>
-      <%= offer.user %>
-    </h1>
-    <p>
-      <%= offer.title %>
-    </p>
-    <%= link_to "To offer", offer_path(offer), class: "btn btn-primary" %>
-  <% end %>
+<div id="sidebar">
+  <h2>Games</h2>
+  <div id="dropdown"></div>
+  <h2>Price</h2>
+  <div id="dropdown"></div>
+  <div class="btn-primary">Search</div>
 </div>
+<%# <div class="container"> %>
+<%# <% @offers.each do |offer| %>
+  <%# User image with cloudinary: cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+  <%# <h1> %>
+  <%# <%= offer.user %>
+  <%# </h1> %>
+  <%# <p> %>
+  <%# <%= offer.title %>
+  <%# </p> %>
+  <%# <%= link_to "To offer", offer_path(offer), class: "btn btn-primary" %>
+  <%# <% end %>
+  <%# </div> %>
