@@ -1,0 +1,36 @@
+body, html {
+  height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("gamingdesk.png");
+
+/* Set a specific height */
+height: 50%;
+
+/* Position and center the image to scale nicely on all screens */
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+position: relative;
+}
+
+.profilepic {
+  position: absolute;
+  bottom: -108px;
+  margin: auto;
+  // left: 40vw;
+  width: 216px;
+  height: 216px;
+  border-radius: 50%;
+}
+
+h1 {
+  position: absolute;
+  bottom: -180px;
+  margin: auto;
+  color:aqua;
+  font-weight:bold;
+}
