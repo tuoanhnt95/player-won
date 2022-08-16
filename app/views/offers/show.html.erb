@@ -6,3 +6,8 @@
 <p>Game: <%= @offer.game.name %></p>
 <p>Duration: <%= @offer.duration %>h</p>
 <p>Price: <%= @offer.price %>yen</p>
+
+<%= simple_form_for([@offer, @booking]) do |f| %>
+<%= f.input :date %>
+<%= f.submit %>
+<% end %>
