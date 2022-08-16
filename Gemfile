@@ -50,6 +50,7 @@ gem "sassc-rails"
 
 gem "autoprefixer-rails"
 gem "devise"
+gem "faker", :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem "font-awesome-sass", "~> 6.1"
 gem "pundit"
 gem "simple_form", github: "heartcombo/simple_form"
@@ -77,6 +78,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "devise"
-gem "faker", :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
