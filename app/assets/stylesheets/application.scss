@@ -10,4 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "components/sidebar";
+@import "components/banner";
+@import "components/aboutme";
 @import "pages/index";
+
+body {
+  background-color: black;
+}
