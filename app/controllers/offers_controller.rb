@@ -30,6 +30,13 @@ class OffersController < ApplicationController
     end
   end
 
+  def destroy
+    @offer = Offer.find(params[:id])
+    authorize @offer
+    @offer.destroy
+    redirect_to dashboard_path, status: :see_other
+  end
+
   private
 
   # strong params -> whitelisting the attributes that the user can give us
