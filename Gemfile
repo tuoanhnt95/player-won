@@ -49,6 +49,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 gem "autoprefixer-rails"
+gem "htmlbeautifier"
 gem "devise"
 gem "faker", :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem "font-awesome-sass", "~> 6.1"

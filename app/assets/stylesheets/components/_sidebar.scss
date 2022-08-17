@@ -1,14 +1,18 @@
 #sidebar {
   width: 17%;
-  height: 100vh;
+  height: 125vh;
   background: linear-gradient(180deg, rgba(168,51,185,1) 0%, rgba(1,186,239,1) 100%);
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  float: left;
 }
 
-#dropdown {
-  display: table-cell;
-  width: 15%;
-  vertical-align: top;
+h2 {
+  color:white;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #01BAEF !important;
+  border-radius: 0.7rem;
 }
