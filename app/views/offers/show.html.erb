@@ -55,3 +55,9 @@
     <%# <div class="btn btn-primary">Request</div> %>
   </div>
 </div>
+<div class="container">
+  <%= simple_form_for([@offer, @booking]) do |f| %>
+    <%= f.input :date %>
+    <%= f.submit %>
+  <% end %>
+</div>
