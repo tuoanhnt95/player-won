@@ -1,19 +1,34 @@
 <div id="sidebar">
   <h2>Games</h2>
-  <div id="dropdown"></div>
+  <div class="input-group">
+    <select class="custom-select" id="inputGroupSelect04">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
   <h2>Price</h2>
-  <div id="dropdown"></div>
-  <div class="btn-primary">Search</div>
+  <div class="input-group">
+    <select class="custom-select" id="inputGroupSelect04">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="button">Search</button>
 </div>
-<%# <div class="container"> %>
-<%# <% @offers.each do |offer| %>
-  <%# User image with cloudinary: cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
-  <%# <h1> %>
-  <%# <%= offer.user %>
-  <%# </h1> %>
-  <%# <p> %>
-  <%# <%= offer.title %>
-  <%# </p> %>
-  <%# <%= link_to "To offer", offer_path(offer), class: "btn btn-primary" %>
-  <%# <% end %>
-  <%# </div> %>
+<div class="banner">
+
+</div>
+<div class="cards">
+  <% @offers.each do |offer| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)" >
+      <%= offer.user %>
+      <%= offer.title %>
+      <%= link_to "To offer", offer_path(offer), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+</div>

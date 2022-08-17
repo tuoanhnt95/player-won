@@ -51,37 +51,25 @@ puts "#{User.count} users are created:)"
 
 titles = ["Good Coach", "Do you want to be perfect at Xgame", "Perfect Coach"]
 
-titles.each_with_index do |title, index|
+10.times do
   Offer.create!(
-    title: title,
+    title: titles.sample,
     duration: rand(0.5...5.0).round(1),
-    price: rand(1000...100000),
-    game: Game.all[index],
-    user: User.all[index]
+    price: rand(1000...100000).round(-2),
+    game: Game.all.sample,
+    user: User.all.sample
   )
 end
 puts "#{Offer.count} offers are created:)"
 
+7.times do
+  Booking.create!(
+    date: Time.now + rand(0..30).day,
+    # status: 0,
+    offer: Offer.all.sample,
+    user: User.all.sample
+  )
+end
 
-
-
-Booking.create!(
-  date: Time.now - 1.day,
-  status: 0,
-  offer: Offer.all[0],
-  user: User.all[3]
-)
-Booking.create!(
-  date: Time.now - 3.day,
-  status: 1,
-  offer: Offer.all[1],
-  user: User.all[0]
-)
-Booking.create!(
-  date: Time.now - 5.day,
-  status: 2,
-  offer: Offer.all[2],
-  user: User.all[3]
-)
 
 puts "#{Booking.count} bookings are created:)"
