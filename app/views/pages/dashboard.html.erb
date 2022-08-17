@@ -1,32 +1,12 @@
 <div class="hero-image">
   <div class="d-flex justify-content-center">
-    <img class="profilepic" src="/assets/songimg.jpg" alt="">
+    <img class="profilepic" src="/assets/yayaimg.jpg" alt="">
   </div>
 </div>
 <div class="container cards-dashboard d-flex">
   <div class="booked_by">
     <h2>I am booked by...</h2>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <%# <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p> %>
-        <ul>
-          <% @booked_by.each do |booking| %>
-            <li>
-              <%= booking.user.name %> for
-              <%= booking.offer.game.name %> on
-              <%= booking.date %>
-              <%= booking.status %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="booked_by">
-    <h2>I have booked...</h2>
-    <% if @make_bookings == []  %>
+    <% if @booked_by == []  %>
       <h3>...you have no bookings...</h3>
     <% else %>
       <div class="card-product">
@@ -35,11 +15,12 @@
           <%# <h2>Product name</h2>
         <p>Product description with <strong>relevant info</strong> only.</p> %>
           <ul>
-            <% @make_bookings.each do |booking| %>
+            <% @booked_by.each do |booking| %>
               <li>
-                <%= booking.user.name %> on
+                <%= booking.user.name %> for
                 <%= booking.offer.game.name %> on
-                <%= link_to 'x', offer_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+                <%= booking.date %>
+                <%= booking.status %>
               </li>
             <% end %>
           </ul>
@@ -48,22 +29,44 @@
     <% end %>
   </div>
   <div class="booked_by">
-    <h2>My Offerings</h2>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <%# <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p> %>
-        <ul>
-          <% @offers.each do |offer| %>
-            <li>
-              <%= offer.game.name %>
-              <%= distance_of_time_in_words(offer.duration*3600) %>
-              <%= number_with_delimiter(offer.price, :delimiter => ',') %>¥
-              <%= link_to 'x', offer_path(offer), data: { turbo_method: :delete, turbo_confirm: 'Delete offer?' }  %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+    <h2>I have booked...</h2>
+    <% if @make_bookings == []  %>
+      <h3>...you have no bookings...</h3>
+    <% else %>
+      <% @make_bookings.each do |booking| %>
+        <div class="card-product">
+          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+          <div class="card-product-infos">
+            <%= booking.offer.user.name %> on
+            <%= booking.offer.game.name %> on
+            <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+  <div class="booked_by">
+    <h2>My Offerings</h2>
+    <% if @offers == []  %>
+      <h3>...you have no offerings...</h3>
+    <% else %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <%# <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p> %>
+          <ul>
+            <% @offers.each do |offer| %>
+              <li>
+                <%= offer.game.name %>
+                <%= distance_of_time_in_words(offer.duration*3600) %>
+                <%= number_with_delimiter(offer.price, :delimiter => ',') %>¥
+                <%= link_to 'x', offer_path(offer), data: { turbo_method: :delete, turbo_confirm: 'Delete offer?' }  %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
