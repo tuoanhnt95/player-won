@@ -41,8 +41,8 @@ user_names = ['Oanh', 'Song', 'Tony', 'Yaya']
 user_names.each do |user_name|
   User.create!(
     name: user_name,
-    email: Faker::Internet.unique.email,
-    password: [*('a'..'z'),*('0'..'9')].shuffle[0,8].join
+    email: "playwon#{user_name}@gmail.com",
+    password: "123123"
   )
 end
 puts "#{User.count} users are created:)"

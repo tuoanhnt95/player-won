@@ -4,7 +4,7 @@ date
 <div class="container">
   <div class="text-light">
     <ul>I am booked by:
-      <% @have_bookings.each do |booking| %>
+      <% @booked_by.each do |booking| %>
         <li>
           <%= booking.user.name %> on
           <%= booking.offer.game.name %> on
