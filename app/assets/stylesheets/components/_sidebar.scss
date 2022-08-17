@@ -1,8 +1,12 @@
 #sidebar {
-  width: 100%;
+  width: 90%;
   height: 100vh;
   background: linear-gradient(180deg, rgba(168,51,185,1) 0%, rgba(1,186,239,1) 100%);
   box-sizing: inherit;
+  border-radius: 5px;
+  margin-left: 24px;
+  padding: 8px;
+  justify-content: center;
 }
 
 h2 {
@@ -12,4 +16,5 @@ h2 {
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
   background-color: #01BAEF !important;
   border-radius: 0.7rem;
+  margin-top: 24px;
 }
