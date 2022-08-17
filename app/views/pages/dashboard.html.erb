@@ -18,7 +18,7 @@ date
         <li>
           <%= booking.user.name %> on
           <%= booking.offer.game.name %> on
-          <%= link_to 'x', offer_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+          <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
         </li>
       <% end %>
     </ul>
