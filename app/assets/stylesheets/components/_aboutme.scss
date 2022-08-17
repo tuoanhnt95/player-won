@@ -9,6 +9,7 @@
   margin-left: 48px;
   border-radius: 20px;
   margin-bottom: 24px;
+  padding-right: 10px;
 }
 
 h2 {
@@ -20,7 +21,8 @@ h2 {
 }
 
 p {
-  padding-left: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   color: azure;
 }
 
@@ -35,11 +37,15 @@ h3 {
 .circle {
   margin-top: 8px;
   margin-bottom: 24px;
-  // height: 100px;
-  // weight: 100px;
-  border-radius: 50%;
-  background-color: antiquewhite;
   text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.card-icons {
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .card-connect {
@@ -49,6 +55,16 @@ h3 {
   margin-left: 24px;
   border-radius: 20px;
   margin-bottom: 24px;
+  padding-right: 10px;
+
+}
+
+.card-icons {
+  list-style-type: none;
+}
+
+.card-social {
+  list-style-type: none;
 }
 
 .offers {
@@ -59,4 +75,42 @@ h3 {
   margin-right: 48px;
   border-radius: 20px;
   margin-bottom: 24px;
+}
+
+.btn  {
+  // margin-top: 100px;
+  background-color: rgb(57, 205, 205);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  width: 160px;
+  color: bisque;
+  border: none;
+}
+
+.offer1 {
+  background-color: rgb(57, 205, 205);
+  text-align: right;
+  padding: 16px;
+  border-radius: 15px;
+  width: 200px;
+  margin: 0 auto;
+  // need to center
+}
+
+// .offer2 {
+//   background-color: rgb(57, 205, 205);
+//   text-align: right;
+//   padding: 16px;
+//   border-radius: 15px;
+//   width: 250px;
+//   margin: 8px;
+// }
+
+.card-form {
+  margin: 0 auto;
+}
+
+.games-offered {
+  padding-top: 10px;
 }

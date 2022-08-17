@@ -1,23 +1,23 @@
 <div class="hero-image">
   <div class="d-flex justify-content-center">
     <img class="profilepic" src="/assets/songimg.jpg" alt="">
-    <h1>Name</h1>
+    <h1>Song</h1>
   </div>
 </div>
-<div class="card-section d-flex">
+<div class="card-section d-flex justify-content-sm-between">
   <div class="card-aboutme align-items-bottom">
     <h2>About Me</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
     <h3>Favorite Games</h3>
-    <ul class="d-flex justify-content-sm-between">
+    <ul class="card-icons d-flex justify-content-sm-between text-white">
       <li>
-        <div class="circle">Game</div>
+        <div class="circle">League of Legends</div>
       </li>
       <li>
-        <div class="circle">Game</div>
+        <div class="circle">DotA 2</div>
       </li>
       <li>
-        <div class="circle">Game</div>
+        <div class="circle">Fortnite</div>
       </li>
     </ul>
   </div>
@@ -25,25 +25,34 @@
     <h3>My Coaching Style</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
     <h3>Connect With Me</h3>
-    <ul class="d-flex justify-content-sm-between">
+    <ul class="card-social d-flex justify-content-sm-between text-white">
       <li>
-        <div class="circle">Game</div>
+        <div class="circle">Discord</div>
       </li>
       <li>
-        <div class="circle">Game</div>
+        <div class="circle">Twitch</div>
       </li>
       <li>
-        <div class="circle">Game</div>
+        <div class="circle">Twitter</div>
       </li>
     </ul>
   </div>
-  <div class="offers">
-    <p>Find me in app/views/offers/show.html.erb</p>
-    <p>Title: <%= @offer.title %></p>
-    <p>Description: <%= @offer.description %></p>
-    <p>Game: <%= @offer.game.name %></p>
-    <p>Duration: <%= @offer.duration %>h</p>
-    <p>Price: <%= @offer.price %>yen</p>
+  <div class="offers p-3">
+    <h3 class="games-offered">Games Offered</h3>
+    <%# <p>Title: <%= @offer.title</p> %>
+    <%# <p>Description: <%= @offer.description</p> %>
+    <div class="offer1">
+      <p><%= @offer.game.name %></p>
+      <p><%= @offer.duration %>h</p>
+      <p>¥<%= @offer.price %></p>
+    </div>
+    <div class="card-form justify-content-center text-white mt-5">
+      <%= simple_form_for([@offer, @booking]) do |f| %>
+        <%= f.input :date, label: 'Choose Date', html5: true %>
+        <%= f.submit 'Book Now', class: "btn btn-primary w-100" %>
+      <% end %>
+    </div>
+    <%# <div class="btn btn-primary">Request</div> %>
   </div>
 </div>
 <div class="container">
