@@ -12,4 +12,9 @@
 @import "components/sidebar";
 @import "components/cards";
 @import "components/banner";
+@import "components/aboutme";
 @import "pages/index";
+
+body {
+  background-color: black;
+}

@@ -1,0 +1,36 @@
+player/who booked
+date
+<h1>Dashboard</h1>
+<div class="container">
+  <div class="text-light">
+    <ul>I am booked by:
+      <% @booked_by.each do |booking| %>
+        <li>
+          <%= booking.user.name %> on
+          <%= booking.offer.game.name %> on
+          <%= booking.date %>
+          <%= booking.status %>
+        </li>
+      <% end %>
+    </ul>
+    <ul>I have booked:
+      <% @make_bookings.each do |booking| %>
+        <li>
+          <%= booking.user.name %> on
+          <%= booking.offer.game.name %> on
+          <%= link_to 'x', offer_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+        </li>
+      <% end %>
+    </ul>
+    <ul>I am offering:
+      <% @offers.each do |offer| %>
+        <li>
+          <%= offer.game.name %>
+          <%= distance_of_time_in_words(offer.duration*3600) %>
+          <%= number_with_delimiter(offer.price, :delimiter => ',') %>¥
+          <%= link_to 'x', offer_path(offer), data: { turbo_method: :delete, turbo_confirm: 'Delete offer?' }  %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
