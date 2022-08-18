@@ -12,6 +12,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to dashboard_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
@@ -22,6 +32,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:content)
+    params.require(:booking).permit(:content, :status)
   end
 end
