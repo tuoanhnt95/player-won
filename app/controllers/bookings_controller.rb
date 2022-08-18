@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to dashboard_path
+      redirect_to offer_path(@offer)
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(booking_params)
-      redirect_to dashboard_path
+      redirect_to my_offers_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to dashboard_path, status: :see_other
+    redirect_to my_bookings_path, status: :see_other
   end
 
   private
