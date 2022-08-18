@@ -1,57 +1,40 @@
-<div class="hero-image">
-  <div class="d-flex justify-content-center">
-    <img class="profilepic" src="/assets/songimg.jpg" alt="">
-    <h1 class="profile-name"><%= @offer.user.name %></h1>
-  </div>
-</div>
-<div class="card-section d-flex justify-content-sm-between">
-  <div class="card-aboutme align-items-bottom">
-    <h2 class="aboutme">About Me</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
-    <h3>Favorite Games</h3>
-    <ul class="card-icons d-flex justify-content-sm-between text-white">
-      <li>
-        <div class="circle">League of Legends</div>
-      </li>
-      <li>
-        <div class="circle">DotA 2</div>
-      </li>
-      <li>
-        <div class="circle">Fortnite</div>
-      </li>
-    </ul>
-  </div>
-  <div class="card-connect align-items-bottom">
-    <h3>My Coaching Style</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
-    <h3>Connect With Me</h3>
-    <ul class="card-social d-flex justify-content-sm-between text-white">
-      <li>
-        <div class="circle">Discord</div>
-      </li>
-      <li>
-        <div class="circle">Twitch</div>
-      </li>
-      <li>
-        <div class="circle">Twitter</div>
-      </li>
-    </ul>
-  </div>
-  <div class="offers p-3">
-    <h3 class="games-offered">Games Offered</h3>
-    <%# <p>Title: <%= @offer.title</p> %>
-    <%# <p>Description: <%= @offer.description</p> %>
-    <div class="offer1">
-      <p><%= @offer.game.name %></p>
-      <p><%= @offer.duration %>h</p>
-      <p>¥<%= @offer.price %></p>
+<div class="row">
+  <div class="col-3">
+    <div class="border border-alert">
+      <img class="avatar-huge" src="/assets/songimg.jpg" alt="">
+      <h2 class="aboutme"><%= @offer.user.name %></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
     </div>
-    <div class="card-form justify-content-center text-white mt-5">
-      <%= simple_form_for([@offer, @booking]) do |f| %>
-        <%= f.input :date, label: 'Choose Date', html5: true %>
-        <%= f.submit 'Book Now', class: "btn btn-primary w-100 btn-player" %>
+  </div>
+  <div class="col-6">
+    <div class="big-card border border-primary d-flex">
+      <div class="offers p-3">
+        <h3 class="games-offered">Games Offered</h3>
+        <%# <p>Title: <%= @offer.title</p> %>
+        <%# <p>Description: <%= @offer.description</p> %>
+        <div class="offer1">
+          <p><%= @offer.game.name %></p>
+          <p><%= @offer.duration %>h</p>
+          <p>¥<%= @offer.price %></p>
+        </div>
+        <div class="card-form justify-content-center text-white mt-5">
+          <%= simple_form_for([@offer, @booking]) do |f| %>
+            <%= f.input :date, label: 'Choose Date', html5: true %>
+            <%= f.submit 'Book Now', class: "btn btn-primary w-100 btn-player" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="border border-primary">
+      <% @offer.user.offers.each do |offer| %>
+        <div class="card-trip card-small">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <h2 class="card-user"><%= offer.user.name %></h2>
+          <p>Short description here!</p>
+        </div>
       <% end %>
     </div>
-    <%# <div class="btn btn-primary">Request</div> %>
   </div>
 </div>
