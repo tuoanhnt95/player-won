@@ -41,6 +41,12 @@
   }
 }
 
+@media (min-width: 992px) {
+  .card-index {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .card-trip {
   overflow: hidden;
   background: white;
