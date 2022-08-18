@@ -9,23 +9,30 @@
     <% if @booked_by == []  %>
       <h3>...you have no bookings...</h3>
     <% else %>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <%# <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p> %>
-          <ul>
-            <% @booked_by.each do |booking| %>
-              <li>
-                <%= booking.user.name %> for
-                <%= booking.offer.game.name %> on
-                <%= booking.date %>
-                <%= booking.status %>
-              </li>
+      <% @booked_by.each do |booking| %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            Player name: <%= booking.user.name %>
+            Game name: <%= booking.offer.game.name %>
+            Date: <%= booking.date %>
+            <% if booking.pending? %>
+              <div class="d-flex">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light' %>
+                <% end %>
+              </div>
+            <% else %>
+              Status: <%= booking.status %>
             <% end %>
-          </ul>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div class="booked_by">
