@@ -26,11 +26,11 @@ class OffersController < ApplicationController
     @offer.user = current_user
     authorize @offer
     if @offer.save
-      redirect_to dashboard_path
+      redirect_to my_offers_path
     else
       # render 'new.html.erb'
       # redirect_to new_restaurant_path
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -38,7 +38,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
     @offer.destroy
-    redirect_to dashboard_path, status: :see_other
+    redirect_to my_offers_path, status: :see_other
   end
 
   private
