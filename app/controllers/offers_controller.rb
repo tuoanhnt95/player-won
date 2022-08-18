@@ -2,7 +2,11 @@ class OffersController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @offers = policy_scope(Offer)
+    if params[:query].present?
+      @offers = policy_scope(Offer).search_by_game_and_user(params[:query])
+    else
+      @offers = policy_scope(Offer)
+    end
   end
 
   def show
