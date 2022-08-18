@@ -36,23 +36,6 @@
     <% end %>
   </div>
   <div class="booked_by">
-    <h2>I have booked...</h2>
-    <% if @make_bookings == []  %>
-      <h3>...you have no bookings...</h3>
-    <% else %>
-      <% @make_bookings.each do |booking| %>
-        <div class="card-product">
-          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-          <div class="card-product-infos">
-            <%= booking.offer.user.name %> on
-            <%= booking.offer.game.name %> on
-            <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="booked_by">
     <h2>My Offerings</h2>
     <% if @offers == []  %>
       <h3>...you have no offerings...</h3>
@@ -60,8 +43,6 @@
       <div class="card-product">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <div class="card-product-infos">
-          <%# <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p> %>
           <ul>
             <% @offers.each do |offer| %>
               <li>
@@ -74,6 +55,18 @@
           </ul>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="booked_by">
+    <%= simple_form_for(@offer) do |f| %>
+      <%=f.input :game_id, collection: Game.all %>
+      <%= f.input :price %>
+      <%= f.input :duration %>
+      <!-- Button trigger modal DO NOT CHANGE-->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Submit
+      </button>
+      <%= render "modal", f:f %> <!-- first f is variable name i can use in partial -->
     <% end %>
   </div>
 </div>
