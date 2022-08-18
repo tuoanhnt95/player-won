@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "offers#index"
+  root to: "pages#home"
 
   resources :offers, only: [:index, :show, :new, :create, :destroy]   do # Need to check "offer#destroy route"
     resources :bookings, only: [:create]
