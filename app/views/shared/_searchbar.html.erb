@@ -1,0 +1,12 @@
+<div id="searchbar">
+  <%= form_tag offers_path, method: :get, class: "d-flex search-form-control form-group" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Type game or coach's name"
+      %>
+    <button class='btn btn-primary' id="btn-search" style='width:40px;'>
+      <i class="fas fa-search"></i>
+    </button>
+  <% end %>
+</div>
