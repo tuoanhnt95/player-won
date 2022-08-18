@@ -6,7 +6,7 @@
 </div>
 <div class="card-section d-flex justify-content-sm-between">
   <div class="card-aboutme align-items-bottom">
-    <h2>About Me</h2>
+    <h2 class="aboutme">About Me</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
     <h3>Favorite Games</h3>
     <ul class="card-icons d-flex justify-content-sm-between text-white">
@@ -49,7 +49,7 @@
     <div class="card-form justify-content-center text-white mt-5">
       <%= simple_form_for([@offer, @booking]) do |f| %>
         <%= f.input :date, label: 'Choose Date', html5: true %>
-        <%= f.submit 'Book Now', class: "btn btn-primary w-100" %>
+        <%= f.submit 'Book Now', class: "btn btn-primary w-100 btn-player" %>
       <% end %>
     </div>
     <%# <div class="btn btn-primary">Request</div> %>

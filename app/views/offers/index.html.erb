@@ -1,33 +1,14 @@
-<div id="sidebar">
-  <h2>Games</h2>
-  <div class="input-group">
-    <select class="custom-select" id="inputGroupSelect04">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <h2>Price</h2>
-  <div class="input-group">
-    <select class="custom-select" id="inputGroupSelect04">
-      <option selected>Choose...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <button class="btn btn-primary" type="button">Search</button>
-</div>
-<div class="banner">
-
-</div>
 <div class="cards">
   <% @offers.each do |offer| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)" >
-      <%= offer.user %>
-      <%= offer.title %>
-      <%= link_to "To offer", offer_path(offer), class: "btn btn-primary" %>
+    <div class="card-trip">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2 class="card-user"><%= offer.user.name %></h2>
+          <p>Short description here!</p>
+        </div>
+        <%# <h2 class="card-trip-pricing">£99.99</h2> %>
+      </div>
     </div>
   <% end %>
 </div>
