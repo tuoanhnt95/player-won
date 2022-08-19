@@ -1,0 +1,55 @@
+<div class="hero-image">
+  <div class="d-flex justify-content-center">
+    <%# <img class="profilepic" src="/assets/yayaimg.jpg" alt=""> %>
+  </div>
+</div>
+<div class="player d-flex justify-content-space-between">
+  <div class="accepted">
+    <div class="cards-dashboard">
+      <h2 class="bookingsh2">My Confirmed Bookings </h2>
+      <div class="booked_by">
+        <% if @make_bookings == []  %>
+          <h3>...you have no bookings...</h3>
+        <% else %>
+          <% @make_bookings.each do |booking| %>
+            <% if booking.status == 'accepted' %>
+              <div class="card-product">
+                <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+                <div class="card-product-infos">
+                  <%= booking.offer.user.name %> on
+                  <%= booking.offer.game.name %> on
+                  <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="pending">
+    <h2 class="bookingsh2">My Pending Bookings</h2>
+    <div class="booked_by">
+      <% if @make_bookings == []  %>
+        <h3>...you have no bookings...</h3>
+      <% else %>
+        <% @make_bookings.each do |booking| %>
+          <% if booking.status == 'pending' %>
+            <div class="card-product">
+              <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+              <div class="card-product-infos">
+                <%# coach avatar %>
+                <%# <%= cl_image_tag booking.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+                <%= booking.offer.user.photo.key %>
+                <%= booking.offer.user.name %> for
+                <%= booking.offer.game.background_image %>on
+                <%# <%= booking.offer.date %>
+                <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
