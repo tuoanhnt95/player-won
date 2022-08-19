@@ -1,12 +1,14 @@
 <div class="card-trip">
-      <img src=<%= offer.game.background_image %> />
-      <div class="card-trip-infos">
-        <div>
-          <h2 class="card-user"><%= offer.game.name %></p>
-          <p><%= offer.duration %>h</p>
-          <p>¥<%= offer.price %></p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
+  <img src=<%= offer.game.background_image %> />
+  <div class="card-trip-infos">
+    <div>
+      <h2 class="card-user">
+        <%= offer.game.name %>
+      </h2>
     </div>
+    <div class="content-justify-left card-user">
+      <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
+      <h2 class="card-trip-pricing"><%= offer.duration %><%= offer.duration <= 1 ? "hr" : "hr".pluralize %></h2>
+    </div>
+  </div>
+</div>
