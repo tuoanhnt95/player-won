@@ -39,12 +39,13 @@ puts "#{Game.count} games are created:)"
 
 user_names = ['Nikki', 'Joshua', 'Yu', 'Bill', 'Daniel', 'Yaya', 'Mounir', 'Soufiane', 'Adam', 'Ayaka', 'Alison', 'Kyle', 'Alex', 'Tony', 'Sae', 'Oanh', 'Andre', 'Mark', 'Leo', 'Jan', 'Koki', 'Malene', 'Carla', 'Song', 'Doug', 'Celso', 'Trouni', 'Ayanori', 'Noemi', 'Sylvain', 'Sasha', 'Yann']
 user_names.each do |user_name|
+  puts "Creating #{user_name}"
   user = User.create!(
     name: user_name,
     email: "playwon#{user_name}@gmail.com",
     password: "123123",
   )
-  file = URI.open('https://thispersondoesnotexist.com/image')
+  file = URI.open('https://source.unsplash.com/featured?profile')
   user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 end
 puts "#{User.count} users are created:)"
