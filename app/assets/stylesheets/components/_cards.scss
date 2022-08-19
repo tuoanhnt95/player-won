@@ -51,8 +51,9 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgb(230, 65, 194);
-  height: 350px;
+  // height: 350px;
   border-radius: 15px;
+  position: relative;
 }
 
 .card-trip > img {
