@@ -1,0 +1,18 @@
+<div class="big-card border border-primary d-flex">
+  <div class="p-3" style BACKGROUND>
+    <h2 class="games-offered">Games Offered</h2>
+    <%# <p>Title: <%= @offer.title</p> %>
+    <%# <p>Description: <%= @offer.description</p> %>
+    <div class="offer1">
+      <p><%= @offer.game.name %></p>
+      <p><%= @offer.duration %>h</p>
+      <p>¥<%= @offer.price %></p>
+    </div>
+    <div class="card-form justify-content-center text-white mt-5">
+      <%= simple_form_for([@offer, @booking]) do |f| %>
+        <%= f.input :date, label: 'Choose Date', html5: true %>
+        <%= f.submit 'Book Now', class: "btn btn-primary w-100 btn-player" %>
+      <% end %>
+    </div>
+  </div>
+</div>
