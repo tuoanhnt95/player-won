@@ -1,17 +1,28 @@
-.booked_by {
-  background-color: blueviolet;
-  height: 320px;
-  width: 500px;
-  margin: 8px;
-  margin-top: 128px;
-  border-radius: 15px;
-  padding: 4px;
+.bookingsh2 {
+  color: #01BAEF;
+}
 
+
+.player {
+  margin-top: 24px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 164px;
+}
+
+.booked_by {
+  background-color: #000000;
+  height: 500px;
+  width: 500px;
+  border-radius: 15px;
+  margin-top: 16px;
+  border: 2px solid #01BAEF;
+  box-shadow: 0 0 15px #01BAEF;
+  padding-top: 16px;
 }
 
 .card-product-infos {
-  padding-top: 4px;
-  padding-bottom: 4px;
   color: black;
 }
 
@@ -23,13 +34,16 @@
   display: flex;
   align-items: center;
   border-radius: 15px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
 
-}
 
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
 }
 
 .card-product h2 {
