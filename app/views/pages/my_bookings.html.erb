@@ -31,7 +31,7 @@
     <h2 class="bookingsh2">My Pending Bookings</h2>
     <div class="booked_by">
       <% if @make_bookings == []  %>
-        <h3>...you have no bookings...</h3>
+        <h3 class="text-white">...you have no bookings...</h3>
       <% else %>
         <% @make_bookings.each do |booking| %>
           <% if booking.status == 'pending' %>

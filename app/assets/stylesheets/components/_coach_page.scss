@@ -4,6 +4,8 @@
   justify-content: space-between;
   align-items: center;
   margin: 16px 0;
+  border-radius: 15px;
+  color: black;
 
   .booking-left {
     display: flex;
@@ -29,6 +31,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 8px;
+  color: black;
 
   .booking-info-title {
     font-weight: bolder;
@@ -38,4 +41,50 @@
   .booking-info-details {
     font-weight: lighter;
   }
+}
+
+.offersh2 {
+  color: #01BAEF;
+  padding-top: 16px;
+}
+
+.offerspage {
+  padding: 40px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+#offersleft {
+  border: 2px solid #01BAEF;
+  box-shadow: 0 0 15px #01BAEF;
+  border-radius: 15px;
+  // height: 100vh;
+}
+
+#offersright {
+  margin-left: 16px;
+  // border: 2px solid #01BAEF;
+  box-shadow: 0 0 15px #01BAEF;
+  background: rgb(168,51,185);
+  background: linear-gradient(180deg, rgba(168,51,185,1) 0%, rgba(1,186,239,1) 100%);
+  border-radius: 15px;
+}
+
+.newoffer {
+  margin-bottom: 8px;
+}
+
+.newofferbutton {
+  background-color: #01BAEF;
+  border: none;
+  color: azure;
+  border-radius: 4px;
+  height: 60px;
+  width: 100%;
+  font-size:x-large;
+}
+
+#coachingoffers {
+  color: azure;
 }
