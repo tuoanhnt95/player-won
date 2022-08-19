@@ -40,10 +40,9 @@
               <div class="card-product-infos">
                 <%# coach avatar %>
                 <%# <%= cl_image_tag booking.offer.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
-                <%= booking.offer.user.photo.key %>
                 <%= booking.offer.user.name %> for
-                <%= booking.offer.game.background_image %>on
-                <%# <%= booking.offer.date %>
+                <%= booking.offer.game.name %>on
+                <%= booking.offer.duration %>h
                 <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
               </div>
             </div>
