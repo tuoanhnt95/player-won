@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     # all offers I made
     @offers = current_user.offers
     # I am booked by => offers I made, and booked by someone
-    @booked_by = current_user.bookings_as_owner
+    @booked_by = current_user.bookings_as_owner.where.not(user: current_user)
     # create new offer
     @offer = Offer.new
   end
