@@ -37,24 +37,24 @@ puts "#{Game.count} games are created:)"
 
 
 
-user_names = ['Oanh', 'Song', 'Tony', 'Yaya']
+user_names = ['Nikki', 'Joshua', 'Yu', 'Bill', 'Daniel', 'Yaya', 'Mounir', 'Soufiane', 'Adam', 'Ayaka', 'Alison', 'Kyle', 'Alex', 'Tony', 'Sae', 'Oanh', 'Andre', 'Mark', 'Leo', 'Jan', 'Koki', 'Malene', 'Carla', 'Song', 'Doug', 'Celso', 'Trouni', 'Ayanori', 'Noemi', 'Sylvain', 'Sasha', 'Yann']
 user_names.each do |user_name|
-  User.create!(
+  user = User.create!(
     name: user_name,
     email: "playwon#{user_name}@gmail.com",
-    password: "123123"
+    password: "123123",
   )
+  file = URI.open('https://thispersondoesnotexist.com/image')
+  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 end
 puts "#{User.count} users are created:)"
 
+# titles = ["Good Coach", "Do you want to be perfect at Xgame", "Perfect Coach"]
 
-
-titles = ["Good Coach", "Do you want to be perfect at Xgame", "Perfect Coach"]
-
-10.times do
+100.times do
   Offer.create!(
-    title: titles.sample,
-    duration: rand(0.5...5.0).round(1),
+    # title: titles.sample,
+    duration: (rand(0.5...5.0) * 2.0).round / 2.0,
     price: rand(1000...100000).round(-2),
     game: Game.all.sample,
     user: User.all.sample
@@ -62,12 +62,13 @@ titles = ["Good Coach", "Do you want to be perfect at Xgame", "Perfect Coach"]
 end
 puts "#{Offer.count} offers are created:)"
 
-7.times do
+60.times do
   Booking.create!(
-    date: Time.now + rand(0..30).day,
+    date: Time.now + rand(0..90).day,
     # status: 0,
     offer: Offer.all.sample,
-    user: User.all.sample
+    user: User.all.sample,
+    status: ['pending', 'accepted', 'rejected'].sample
   )
 end
 

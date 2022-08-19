@@ -1,21 +1,24 @@
-<div class="hero-image">
-  <div class="d-flex justify-content-center">
-    <%# <img class="profilepic" src="/assets/yayaimg.jpg" alt=""> %>
-  </div>
-</div>
-<div class="container cards-dashboard d-flex">
-  <div class="booked_by">
-    <h2>I am booked by...</h2>
-    <% if @booked_by == []  %>
-      <h3>...you have no bookings...</h3>
-    <% else %>
+<div class="container">
+  <h2 class="text-white">My Coaching Requests</h2>
+  <% if @booked_by == []  %>
+    <h3>...you have no bookings...</h3>
+  <% else %>
+    <div class="bookings">
       <% @booked_by.each do |booking| %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            Player name: <%= booking.user.name %>
-            Game name: <%= booking.offer.game.name %>
-            Date: <%= booking.date %>
+        <div class="booking">
+          <div class="booking-left">
+            <%= cl_image_tag booking.user.photo.key, class: "avatar-bordered" %>
+            <%= booking.user.name %>
+            <div class="booking-info">
+              <div class="booking-info-title">
+                <%= booking.offer.game.name %>
+              </div>
+              <div class="booking-info-details">
+                Date: <%= booking.date %>
+              </div>
+            </div>
+          </div>
+          <div class="booking-actions">
             <% if booking.pending? %>
               <div class="d-flex">
                 <%= simple_form_for booking do |f| %>
@@ -28,45 +31,44 @@
                 <% end %>
               </div>
             <% else %>
-              Status: <%= booking.status %>
+              <p class='booking-tag'><%= booking.status %></p>
             <% end %>
           </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
-  <div class="booked_by">
-    <h2>My Offerings</h2>
-    <% if @offers == []  %>
-      <h3>...you have no offerings...</h3>
-    <% else %>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  <h2 class="">My Offerings</h2>
+  <% if @offers == []  %>
+    <h3>...you have no offerings...</h3>
+  <% else %>
+    <% @offers.each do |offer| %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <ul>
-            <% @offers.each do |offer| %>
-              <li>
-                <%= offer.game.name %>
-                <%= distance_of_time_in_words(offer.duration*3600) %>
-                <%= number_with_delimiter(offer.price, :delimiter => ',') %>¥
-                <%= link_to 'x', offer_path(offer), data: { turbo_method: :delete, turbo_confirm: 'Delete offer?' }  %>
-              </li>
-            <% end %>
-          </ul>
+        <%= image_tag(offer.game.background_image) %>
+        <div class="booking-info">
+          <div class="booking-info-title">
+            <%= offer.game.name %>
+          </div>
+          <div class="booking-info-details">
+            <%= offer.duration %>h
+            <%= number_with_delimiter(offer.price, :delimiter => ',') %>¥
+          </div>
         </div>
+        <% unless offer.bookings %>
+          <%= link_to 'x', offer_path(offer), data: { turbo_method: :delete, turbo_confirm: 'Delete offer?' }  %>
+        <% end %>
       </div>
     <% end %>
-  </div>
-  <div class="booked_by">
-    <%= simple_form_for(@offer) do |f| %>
-      <%=f.input :game_id, collection: Game.all %>
-      <%= f.input :price %>
-      <%= f.input :duration %>
-      <!-- Button trigger modal DO NOT CHANGE-->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Submit
-      </button>
-      <%= render "modal", f:f %> <!-- first f is variable name i can use in partial -->
-    <% end %>
-  </div>
+  <% end %>
+</div>
+<div class="container text-white">
+  <%= simple_form_for(@offer, data: { turbo_confirm: "Are you sure ?"}) do |f| %>
+    <%=f.input :game_id, collection: Game.all %>
+    <%= f.input :price %>
+    <%= f.input :duration %>
+    <%= f.submit  %>
+  <% end %>
+</div>
 </div>
