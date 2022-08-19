@@ -1,10 +1,11 @@
-<div class="border border-primary">
+<div class="border border-primary p-3">
   <% @offer.user.offers.each do |offer| %>
     <div class="card-trip card-small">
     <%= image_tag(offer.game.background_image) %>
-      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
-      <h2 class="card-user"><%= offer.user.name %></h2>
-      <p>Short description here!</p>
+    <div class="card-trip-infos">
+      <p class="card-user">¥ <%= offer.price %></p>
+      <p class="card-user"><%= offer.duration %>h</p>
+      </div>
     </div>
     <div class="card-trip card-small">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
