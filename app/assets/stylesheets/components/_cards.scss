@@ -90,11 +90,16 @@
 }
 
 .card-small {
+  margin-bottom: 16px;
   height: 150px;
-  width: max-content;
+  width: 180px;
+}
+.card-game {
+  color: blueviolet;
 }
 
 .card-user {
+  padding-top: 2px;
   color: blueviolet;
 }
 
