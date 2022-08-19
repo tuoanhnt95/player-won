@@ -1,9 +1,13 @@
 .avatar {
-  width: 40px;
-  border-radius: 50%;
+  height: 40px;
+  clip-path: circle();
 }
 .avatar-large {
   width: 56px;
+  border-radius: 50%;
+}
+.avatar-huge {
+  width: 156px;
   border-radius: 50%;
 }
 .avatar-bordered {

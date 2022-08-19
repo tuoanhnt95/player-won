@@ -88,6 +88,17 @@
   width: 40px;
 }
 
+.card-small {
+  height: 150px;
+  width: max-content;
+}
+
 .card-user {
   color: blueviolet;
+}
+
+.link-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
