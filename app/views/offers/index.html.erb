@@ -2,7 +2,8 @@
 <div class="card-index">
   <% @offers.each do |offer| %>
     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%= cl_image_tag offer.user.photo.key %>
+      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /> %>
       <div class="card-trip-infos">
         <div>
           <h2 class="card-user"><%= offer.user.name %></h2>

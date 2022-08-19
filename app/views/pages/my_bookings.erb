@@ -5,19 +5,40 @@
 </div>
 <div class="container cards-dashboard d-flex">
   <div class="booked_by">
-    <h2>I have booked...</h2>
+    <h2>My bookings accepted</h2>
     <% if @make_bookings == []  %>
       <h3>...you have no bookings...</h3>
     <% else %>
       <% @make_bookings.each do |booking| %>
-        <div class="card-product">
-          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-          <div class="card-product-infos">
-            <%= booking.offer.user.name %> on
-            <%= booking.offer.game.name %> on
-            <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+        <% if booking.status == 'accepted' %>
+          <div class="card-product">
+            <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+            <div class="card-product-infos">
+              <%= booking.offer.user.name %> on
+              <%= booking.offer.game.name %> on
+              <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="booked_by">
+    <h2>My bookings on pending</h2>
+    <% if @make_bookings == []  %>
+      <h3>...you have no bookings...</h3>
+    <% else %>
+      <% @make_bookings.each do |booking| %>
+        <% if booking.status == 'pending' %>
+          <div class="card-product">
+            <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+            <div class="card-product-infos">
+              <%= booking.offer.user.name %> on
+              <%= booking.offer.game.name %> on
+              <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete booking?' }  %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
