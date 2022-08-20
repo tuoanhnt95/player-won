@@ -1,7 +1,5 @@
-<div class="cardoffer">
-  <%= cl_image_tag @offer.user.photo.key, class: "avatar avatar-large mx-auto" %>
-  <h2 class="aboutme"><%= @offer.user.name %></h2>
-  <div >
-    <p style="word-wrap: break-word; min-width: 200px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
-  </div>
+<div class="card-purple border-shadow-blue card-side">
+  <%= cl_image_tag @offer.user.photo.key, { class: "avatar avatar-large position-middle", id: "avatar-aboutme" } %>
+  <h2 class="position-middle"><%= @offer.user.name %></h2>
+  <p class="position-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique repudiandae dolores quae accusantium sapiente sit. Similique repudiandae dolores quae accusantium sapiente sit.</p>
 </div>
