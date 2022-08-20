@@ -13,6 +13,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     authorize @offer
     @booking = Booking.new
+    @other_offers = @offer.user.offers.where.not(id: @offer.id)
   end
 
   def new

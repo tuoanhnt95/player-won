@@ -1,4 +1,4 @@
-<div class="card-trip">
+<div class="card-trip mb-1">
   <img src=<%= offer.game.background_image %> />
   <div class="card-trip-infos">
     <div>
@@ -7,7 +7,7 @@
       </h2>
     </div>
     <div class="content-justify-left card-user">
-      <h2 class="card-trip-pricing">¥<%= offer.price %></h2>
+      <h2 class="card-trip-pricing">¥<%= number_with_delimiter(offer.price, delimiter: ",") %></h2>
       <h2 class="card-trip-pricing"><%= offer.duration %><%= offer.duration <= 1 ? "hr" : "hr".pluralize %></h2>
     </div>
   </div>
