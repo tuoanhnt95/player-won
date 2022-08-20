@@ -51,7 +51,6 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgb(230, 65, 194);
-  // height: 350px;
   border-radius: 15px;
   position: relative;
 }
@@ -75,7 +74,7 @@
 }
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -88,8 +87,8 @@
   width: 40px;
 }
 
-.card-small {
-  margin-bottom: 38px;
+#card-small {
+
 
 }
 .card-game {
