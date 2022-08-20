@@ -8,7 +8,7 @@
         <% @booked_by.each do |booking| %>
           <div class="booking">
             <div class="booking-left">
-              <%= cl_image_tag booking.user.photo.key, class: "avatar-bordered" %>
+              <%= cl_image_tag booking.user.photo.key, class: "avatar" %>
               <%= booking.user.name %>
               <div class="booking-info">
                 <div class="booking-info-title">
