@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to offer_path(@offer)
+      redirect_to my_bookings_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,6 +32,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:content, :status)
+    params.require(:booking).permit(:content, :status, :date)
   end
 end

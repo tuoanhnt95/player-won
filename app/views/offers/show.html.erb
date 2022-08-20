@@ -1,11 +1,12 @@
+<%= render 'searchbar' %>
 <div class="row">
   <div class="col-3">
-    <%= render 'shared/about_me', offer: @offer %>
+    <%= render 'about_me', offer: @offer %>
   </div>
   <div class="col-6">
-    <%= render 'shared/big_card', offer: @offer %>
+    <%= render 'big_card', offer: @offer, booking: @booking %>
   </div>
   <div class="col-3">
-    <%= render 'shared/trio_card' %>
+    <%= render 'trio_card', other_offers: @other_offers %>
   </div>
 </div>
