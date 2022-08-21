@@ -1,11 +1,3 @@
-.card-index {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
-  margin: 0 auto;
-  padding: 16px;
-}
-
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -47,6 +39,14 @@
   }
 }
 
+.card-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -72,12 +72,12 @@
     opacity: .7;
     margin: 0;
   }
-}
 
-.link-card {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  .link-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .card-purple {
@@ -138,18 +138,5 @@
     opacity: .7;
     margin-bottom: 0;
     margin-top: 8px;
-  }
-}
-
-.border-shadow-blue {
-  box-shadow: 0 0 15px #01BAEF;
-}
-
-.border-blue {
-  border: 2px solid #01BAEF;
-  border-radius: 15px;
-  h2 {
-   color: #01BAEF;
-   padding-top: 16px;
   }
 }

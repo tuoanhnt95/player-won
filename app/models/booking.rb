@@ -2,6 +2,5 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :offer
 
-  enum status: [ :pending, :accepted, :rejected ]
-
+  enum status: %i[pending accepted rejected]
 end
