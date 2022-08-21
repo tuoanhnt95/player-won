@@ -14,6 +14,13 @@ class OffersController < ApplicationController
     authorize @offer
     @booking = Booking.new
     @other_offers = @offer.user.offers.where.not(id: @offer.id)
+    if @offer.user == current_user
+      @reviews = []
+    else
+      @reviews = @offer.reviews
+    end
+    @my_reviews = @reviews.where(user: current_user)
+    @review = Review.new
   end
 
   def new

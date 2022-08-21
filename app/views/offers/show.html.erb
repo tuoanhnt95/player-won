@@ -10,4 +10,21 @@
     <%= render 'trio_card', other_offers: @other_offers %>
   </div>
 </div>
-
+<div class="container">
+  <h2><%= @reviews.count %> reviews:</h2>
+  <% @reviews.each do |review| %>
+    <div>
+      <%= review.user.name %>
+      <%= review.rating %>
+      <%= review.content %>
+      <% if review.in?(@my_reviews) %>
+        <%= link_to 'x', review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Delete?' }  %>
+      <% end %>
+      <br>
+      <br>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  FORM TO ADD NEW REVIEW
+</div>

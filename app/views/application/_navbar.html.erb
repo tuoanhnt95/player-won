@@ -7,10 +7,11 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   </div>
-  <p>Hello <%= current_user.email %>!</p>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto">
       <% if user_signed_in? %>
+         <p>Hello <%= current_user.email %>!</p>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle m-2", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
