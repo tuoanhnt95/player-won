@@ -4,14 +4,14 @@
     <div class="card-trip">
       <%= link_to '', offer_path(offer), class: 'link-card' %>
       <%= cl_image_tag offer.user.photo.key %>
-      <div class="card-trip-infos">
+      <div class="d-flex justify-content-between p-2 position-relative">
         <div>
-          <h2 class="card-game"><%= offer.user.name %></h2>
-          <p class="card-user"><%= offer.game.name %></p>
+          <h2><%= offer.user.name %></h2>
+          <p class="p-2"><%= offer.game.name %></p>
         </div>
         <div class="card-user">
-          <h2 class="card-trip-pricing d-flex justify-content-end">¥<%= number_with_delimiter(offer.price, delimiter: ",") %></h2>
-          <h2 class="card-trip-pricing d-flex justify-content-end"><%= offer.duration %><%= offer.duration <= 1 ? "hr" : "hr".pluralize %></h2>
+          <h2 class="d-flex justify-content-end">¥<%= number_with_delimiter(offer.price, delimiter: ",") %></h2>
+          <h2 class="d-flex justify-content-end"><%= offer.duration %><%= offer.duration <= 1 ? "hr" : "hr".pluralize %></h2>
         </div>
       </div>
     </div>

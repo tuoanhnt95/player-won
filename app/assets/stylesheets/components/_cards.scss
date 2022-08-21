@@ -50,50 +50,28 @@
 .card-trip {
   overflow: hidden;
   background: white;
+  color: blueviolet;
   box-shadow: 0 0 15px rgb(230, 65, 194);
   border-radius: 15px;
   position: relative;
-}
 
-.card-trip > img {
-  height: 75%;
-  width: 100%;
-  object-fit: cover;
-}
+  img {
+    height: 75%;
+    width: 100%;
+    object-fit: cover;
+  }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-trip .card-trip-infos {
-  padding: 8px;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
-.card-game {
-  color: blueviolet;
-}
-
-.card-user {
-  padding-top: 2px;
-  color: blueviolet;
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
 }
 
 .link-card {
@@ -102,12 +80,76 @@
   height: 100%;
 }
 
-.cardoffer {
-  background: rgb(1,186,239);
-  background: linear-gradient(0deg, rgba(1,186,239,1) 0%, rgba(168,51,185,1) 100%);
+.card-purple {
+  margin-left: 32px;
+  background: rgb(168,51,185);
+  background: linear-gradient(180deg, rgba(168,51,185,1) 0%, rgba(1,186,239,1) 100%);
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.card-side {
   height: 100vh;
-  margin-top: 250px;
+  margin-top: 120px;
   margin-left: 16px;
   position: relative;
+
+  h2 {
+    color: #01BAEF;
+    top: 40px;
+    padding: 20px;
+  }
+
+  p {
+    width: 250px;
+    top: 110px;
+    min-width: 100px;
+    word-wrap: break-word;
+  }
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
   border-radius: 15px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+}
+
+.border-shadow-blue {
+  box-shadow: 0 0 15px #01BAEF;
+}
+
+.border-blue {
+  border: 2px solid #01BAEF;
+  border-radius: 15px;
+  h2 {
+   color: #01BAEF;
+   padding-top: 16px;
+  }
 }
