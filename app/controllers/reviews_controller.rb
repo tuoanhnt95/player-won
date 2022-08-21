@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     authorize @review
     @review.destroy
-    redirect_to my_reviews_path, status: :see_other
+    redirect_to offer_path(@offer), status: :see_other
   end
 
   private

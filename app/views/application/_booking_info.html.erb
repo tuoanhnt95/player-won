@@ -1,0 +1,9 @@
+<div class="booking-info">
+  <div class="booking-info-title">
+    <%= booking.offer.game.name %>
+  </div>
+  <div class="booking-info-details">
+    Date: <%= booking.date %>
+    <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete?' }  %>
+  </div>
+</div>

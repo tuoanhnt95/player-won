@@ -5,8 +5,9 @@
       <h3>...you have no bookings...</h3>
     <% else %>
       <% @booked_by.each do |booking| %>
-        <div class="status-bar">
-          <%= render 'status_bar', booking: booking, user: booking.user %>
+        <div class="card-white d-flex p-2">
+          <%= render 'card_white_avatar', user: booking.user %>
+          <%= render 'booking_info', booking: booking %>
           <div class="d-flex align-items-center">
             <% if booking.pending? %>
               <div class="d-flex">
