@@ -8,17 +8,20 @@
 require "open-uri"
 require "faker"
 
-puts "Destory the booking database..."
+puts "Destroy the booking database..."
 Booking.destroy_all
 
-puts "Destory the offer database..."
+puts "Destroy the offer database..."
 Offer.destroy_all
 
-puts "Destory the user database..."
+puts "Destroy the user database..."
 User.destroy_all
 
-puts "Destory the game database..."
+puts "Destroy the game database..."
 Game.destroy_all
+
+puts "Destroy the review database..."
+Review.destroy_all
 
 # 39073 pages of games are there
 # pages = (1..3).to_a
@@ -35,15 +38,14 @@ Game.destroy_all
   end
 puts "#{Game.count} games are created:)"
 
-
-
 user_names = ['Nikki', 'Joshua', 'Yu', 'Bill', 'Daniel', 'Yaya', 'Mounir', 'Soufiane', 'Adam', 'Ayaka', 'Alison', 'Kyle', 'Alex', 'Tony', 'Sae', 'Oanh', 'Andre', 'Mark', 'Leo', 'Jan', 'Koki', 'Malene', 'Carla', 'Song', 'Doug', 'Celso', 'Trouni', 'Ayanori', 'Noemi', 'Sylvain', 'Sasha', 'Yann']
+
 user_names.each do |user_name|
   puts "Creating #{user_name}"
   user = User.create!(
     name: user_name,
     email: "playwon#{user_name}@gmail.com",
-    password: "123123",
+    password: "123123"
   )
   file = URI.open('https://source.unsplash.com/featured?profile')
   user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
@@ -72,6 +74,14 @@ puts "#{Offer.count} offers are created:)"
     status: ['pending', 'accepted', 'rejected'].sample
   )
 end
-
-
 puts "#{Booking.count} bookings are created:)"
+
+60.times do
+  Review.create!(
+    content: Faker::Lorem.paragraphs(number: 1, supplemental: true),
+    rating: rand(1..5),
+    offer: Offer.all[rand(0..5)],
+    user: User.all.sample
+  )
+end
+puts "#{Review.count} reviews are created for the first six offers:)"
