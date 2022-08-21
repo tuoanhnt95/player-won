@@ -6,8 +6,9 @@
     <% else %>
       <% @make_bookings.each do |booking| %>
         <% if booking.status == 'accepted' %>
-          <div class="status-bar">
-            <%= render 'status_bar', booking: booking, user: booking.offer.user %>
+          <div class="card-white d-flex p-2">
+            <%= render 'card_white_avatar', user: booking.offer.user %>
+            <%= render 'booking_info', booking: booking %>
           </div>
         <% end %>
       <% end %>
@@ -20,8 +21,9 @@
     <% else %>
       <% @make_bookings.each do |booking| %>
         <% if booking.status == 'pending' %>
-          <div class="status-bar">
-            <%= render 'status_bar', booking: booking, user: booking.offer.user %>
+          <div class="card-white d-flex p-2">
+            <%= render 'card_white_avatar', user: booking.offer.user %>
+            <%= render 'booking_info', booking: booking %>
           </div>
         <% end %>
       <% end %>

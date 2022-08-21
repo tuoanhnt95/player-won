@@ -140,3 +140,13 @@
     margin-top: 8px;
   }
 }
+
+.card-white {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+  border-radius: 15px;
+  color: black;
+}

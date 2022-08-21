@@ -14,11 +14,8 @@ class OffersController < ApplicationController
     authorize @offer
     @booking = Booking.new
     @other_offers = @offer.user.offers.where.not(id: @offer.id)
-    if @offer.user == current_user
-      @reviews = []
-    else
-      @reviews = @offer.reviews
-    end
+
+    filter_own_offer_reviews(@offer)
     @my_reviews = @reviews.where(user: current_user)
     @review = Review.new
   end
@@ -54,5 +51,13 @@ class OffersController < ApplicationController
   # strong params -> whitelisting the attributes that the user can give us
   def offer_params
     params.require(:offer).permit(:title, :description, :duration, :price, :game_id)
+  end
+
+  def filter_own_offer_reviews(offer)
+    if offer.user == current_user
+      @reviews = []
+    else
+      @reviews = offer.reviews
+    end
   end
 end
