@@ -10,7 +10,7 @@
     <%= render 'trio_card', other_offers: @other_offers %>
   </div>
 </div>
-<div class="container">
+<div class="container"> <%# reviews %>
   <h2><%= @reviews.count %> reviews (avg. <%= @reviews.average(:rating).to_i %>/5) </h2>
   <% @reviews.each do |review| %>
     <div class="card-white d-flex p-2 mb-5">

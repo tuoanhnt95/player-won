@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PlayerWon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <title>PlayerWon</title>
+    <%= favicon_link_tag %>
+    <%# <link rel="short icon" type="image/x-icon" href="/pw-favicon.png"> %>
   </head>
   <body>
     <%= render "navbar" %>

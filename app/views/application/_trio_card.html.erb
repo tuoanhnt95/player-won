@@ -1,7 +1,7 @@
-<div class="p-3">
-  Other <%= other_offers.count > 1 ? "offers" : "offer" %> :
+<div class="mt-4 me-3">
+  <h5>Other <%= other_offers.count > 1 ? "Offers" : "Offer" %> :</h5>
   <% other_offers.each do |offer| %>
-    <div class="card-trip mb-2">
+    <div class="card-trip mb-4 mt-3">
       <%= link_to '', offer_path(offer), class: 'link-card' %>
       <img src=<%= offer.game.background_image %> />
       <div class="card-trip-infos">
