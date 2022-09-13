@@ -1,58 +1,46 @@
-<div class="offerspage d-flex justify-content-space-between">
-  <div class="container" id="offersleft">
-    <h2 class="offersh2">My Coaching Requests</h2>
+<div class="p-5 gap-5 d-flex justify-content-around">
+  <div class="container border-blue border-shadow-blue">
+    <h2>My Coaching Requests</h2>
     <% if @booked_by == []  %>
       <h3>...you have no bookings...</h3>
     <% else %>
-      <div class="bookings">
-        <% @booked_by.each do |booking| %>
-          <div class="booking">
-            <div class="booking-left">
-              <%= cl_image_tag booking.user.photo.key, class: "avatar-bordered" %>
-              <%= booking.user.name %>
-              <div class="booking-info">
-                <div class="booking-info-title">
-                  <%= booking.offer.game.name %>
-                </div>
-                <div class="booking-info-details">
-                  Date: <%= booking.date %>
-                </div>
+      <% @booked_by.each do |booking| %>
+        <div class="card-white d-flex p-2">
+          <%= render 'card_white_avatar', user: booking.user %>
+          <%= render 'booking_info', booking: booking %>
+          <div class="d-flex align-items-center">
+            <% if booking.pending? %>
+              <div class="d-flex">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info mb-3' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light mb-3' %>
+                <% end %>
               </div>
-            </div>
-            <div class="booking-actions">
-              <% if booking.pending? %>
-                <div class="d-flex">
-                  <%= simple_form_for booking do |f| %>
-                    <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                    <%= f.submit 'Accept', class: 'btn btn-info mb-3' %>
-                  <% end %>
-                  <%= simple_form_for booking do |f| %>
-                    <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                    <%= f.submit 'Reject', class: 'btn btn-light mb-3' %>
-                  <% end %>
-                </div>
-              <% else %>
-                <p class='booking-tag'><%= booking.status %></p>
-              <% end %>
-            </div>
+            <% else %>
+              <p class='booking-tag'><%= booking.status %></p>
+            <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
-  <div class="container text-white" id="offersright">
-    <div class="newoffer">
-      <h2 class="offersh2">Create A New Offer</h2>
+  <div class="container card-purple border-shadow-blue">
+    <div class="mb-5">
+      <h2>Create A New Offer</h2>
       <%= simple_form_for(@offer, data: { turbo_confirm: "Are you sure ?"}) do |f| %>
         <%=f.input :game_id, collection: Game.all %>
         <%= f.input :price, label: "Price(¥)" %>
         <%= f.input :duration, label: "Duration(Hr)"%>
-        <%= f.submit class: "newofferbutton"%>
+        <%= f.submit class: "btn-blue w-100"%>
       <% end %>
     </div>
-    <h2 class="offersh2" id="coachingoffers">My Coaching Offers</h2>
+    <h2>My Coaching Offers</h2>
     <% if @offers == []  %>
-      <h3>...you have no offerings...</h3>
+      <h3>...you have no offer...</h3>
     <% else %>
       <% @offers.each do |offer| %>
         <div class="card-product">
@@ -73,5 +61,4 @@
       <% end %>
     <% end %>
   </div>
-</div>
 </div>
