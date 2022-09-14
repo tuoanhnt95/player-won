@@ -1,7 +1,7 @@
 <div class="card-offer mb-2">
   <%= link_to '', offer_path(offer), class: 'link-card' %>
   <img src=<%= offer.game.background_image %> />
-  <div class="card-trip-infos">
+  <div class="card-trip-infos d-flex justify-content-between">
     <div>
       <h2 class="card-user">
         <%= offer.game.name %>
