@@ -4,6 +4,6 @@
   </div>
   <div class="booking-info-details text-white">
     Date: <%= booking.date %>
-    <%= link_to 'x', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete?' }  %>
+    <%= link_to 'X', booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'Delete?' }, class: "btn btn-primary"  %>
   </div>
 </div>
